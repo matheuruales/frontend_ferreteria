@@ -1,0 +1,30 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "CHOKIDAR_USEPOLLING=1 WATCHPACK_POLLING=true next dev -p 3000",
+    "dev:clean": "rm -rf .next && CHOKIDAR_USEPOLLING=1 WATCHPACK_POLLING=true next dev -p 3000",
+    "dev:reset": "lsof -ti tcp:3000 | xargs kill -9 2>/dev/null || true && rm -rf .next && CHOKIDAR_USEPOLLING=1 WATCHPACK_POLLING=true next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@stripe/react-stripe-js": "^5.6.1",
+    "@stripe/stripe-js": "^8.11.0",
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

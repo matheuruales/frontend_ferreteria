@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --line: #e5e7eb;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.28);
+  color: #7c2d12;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: var(--font-montserrat), "Segoe UI", sans-serif;
+  }
+
+  .bg-grid-soft {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .surface-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    backdrop-filter: blur(6px);
+  }
+
+  .shadow-soft-xl {
+    box-shadow:
+      0 20px 40px -28px rgba(2, 6, 23, 0.35),
+      0 12px 24px -20px rgba(15, 23, 42, 0.25);
+  }
+
+  .home-shell {
+    width: min(100%, 1280px);
+    margin-inline: auto;
+  }
+}
