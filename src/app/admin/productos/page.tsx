@@ -201,7 +201,7 @@ export default function AdminProductosPage() {
       ...(form.sku.trim() ? { sku: form.sku.trim() } : {}),
       ...(form.brand.trim() ? { brand: form.brand.trim() } : {}),
       price: finalPrice,
-      compare_at_price: form.apply_discount ? basePrice : null,
+      ...(form.apply_discount ? { compare_at_price: basePrice } : {}),
       stock,
       ...(form.category_id ? { category_id: form.category_id } : {}),
       status: form.status,

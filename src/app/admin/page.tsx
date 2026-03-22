@@ -79,12 +79,14 @@ function buildWeekdayFallbackPoints(): DashboardSalesWeekdayPoint[] {
 }
 
 function sanitizeSalesPoints<T extends SalesPoint>(raw: unknown, fallback: T[]): T[] {
+  const lastFallback = fallback[fallback.length - 1];
+  if (!lastFallback) return [];
   if (!Array.isArray(raw) || raw.length === 0) return fallback;
 
   const sanitized = raw
     .map((item, index) => {
       const row = item as Partial<SalesPoint> | null;
-      const base = fallback[index] ?? fallback[fallback.length - 1];
+      const base = fallback[index] ?? lastFallback;
       if (!row || typeof row !== "object") return base;
       return {
         key: typeof row.key === "string" && row.key ? row.key : base.key,
